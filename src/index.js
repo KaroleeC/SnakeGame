@@ -29,6 +29,91 @@ $(document).ready(function() {
     playing = true;
     console.log(playing);
   });
+
+  //listener for key press 
+  $('body').keydown((e) => {
+    e.preventDefault();
+    if (playing) {
+      switch (e.keyCode) {
+
+      case 37: 
+        console.log('top, left', window.red[0].top, window.red[0].left);
+        window.red.forEach( (item, index) => {
+          if ( index > 0 ) {
+            item.previousLeft = item.left;
+            item.left = window.red[index - 1].previousLeft;
+            item.previousTop = item.top;
+            item.top = window.red[index - 1].previousTop;
+          } else {
+            item.previousLeft = item.left;
+            item.left -= 15;
+            item.previousTop = item.top;
+          }
+        });
+        checkDistance();
+        checkBody(window.red[0].top, window.red[0].left);
+        break;
+    
+      case 38: 
+        console.log('top, left', window.red[0].top, window.red[0].left);
+        window.red.forEach( (item, index) => {
+          if ( index > 0 ) {
+            item.previousTop = item.top;
+            item.top = window.red[index - 1].previousTop;
+            item.previousLeft = item.left;
+            item.left = window.red[index - 1].previousLeft;
+          } else {
+            item.previousTop = item.top;
+            item.previousLeft = item.left;
+            item.top -= 15;
+          }
+        });
+        checkDistance();
+        checkBody(window.red[0].top, window.red[0].left);
+        break;
+    
+      case 39: 
+        console.log('top, left', window.red[0].top, window.red[0].left);
+        window.red.forEach( (item, index) => {
+          if ( index > 0 ) {
+            item.previousLeft = item.left;
+            item.left = window.red[index - 1].previousLeft;
+            item.previousTop = item.top;
+            item.top = window.red[index - 1].previousTop;
+          } else {
+            item.previousTop = item.top;
+            item.previousLeft = item.left;
+            item.left += 15;
+          }
+        });
+        checkDistance();
+        checkBody(window.red[0].top, window.red[0].left)
+        break;
+    
+      case 40: 
+        console.log('top, left', window.red[0].top, window.red[0].left)
+        window.red.forEach( (item, index) => {
+          if ( index > 0 ) {
+            item.previousTop = item.top;
+            item.top = window.red[index - 1].previousTop;
+            item.previousLeft = item.left;
+            item.left = window.red[index - 1].previousLeft;
+          } else {
+            item.previousLeft = item.left;
+            item.previousTop = item.top;
+            item.top += 15;
+          }
+        });
+        checkDistance();
+        checkBody(window.red[0].top, window.red[0].left);
+        break;
+      } 
+    } else {
+      console.log('Your game ended. Start a new Game');
+    }
+
+  });
+
 });
 
 

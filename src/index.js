@@ -16,11 +16,11 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('.gameBoard').append(sprite.$node);
-    if (sprite instanceof makeSnakesprite) {
+    if (sprite instanceof makeSnakeSprite) {
       window.snake.push(sprite);
     } else {
-      sprite.$node.attr('id', window.sprites.length);
-      window.sprites.push(sprite);  
+      sprite.$node.attr('id', window.fruit.length);
+      window.fruit.push(sprite);  
     } 
   });
   
@@ -36,7 +36,7 @@ const startGame = function() {
   //delete all previous game aspects
   $('#gameOverModal').css('display', 'none');
   $('.gameBoard').empty();
-  window.sprites.splice(0);
+  window.fruit.splice(0);
   window.snake.splice(0);
   score = 0;
   
@@ -52,7 +52,7 @@ const startGame = function() {
     fruit.$node.attr('id', window.sprites.length);
     window.sprites.push(fruit);  
   }
-  //spawn 1 blink snake
+  //spawn 1 snake
   var snake = new makeSnakeSprite(
     $('.gameBoard').height() / 2,
     $('.gameBoard').width() / 2,

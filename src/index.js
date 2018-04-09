@@ -49,8 +49,8 @@ const startGame = function() {
       Math.random() * 1000
     );
     $('.gameBoard').append(fruit.$node);
-    fruit.$node.attr('id', window.sprites.length);
-    window.sprites.push(fruit);  
+    fruit.$node.attr('id', window.fruit.length);
+    window.fruit.push(fruit);  
   }
   //spawn 1 snake
   var snake = new makeSnakeSprite(
